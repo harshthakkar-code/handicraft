@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { arr_routing } from "./routing";
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from "@angular/common/http";
-import { MatIconModule,MatButtonModule, MatTableModule,MatSortModule, MatPaginatorModule, MatCheckboxModule, MatDialogModule } from "@angular/material";
+import { MatIconModule , MatButtonModule , MatTableModule , MatSortModule, MatPaginatorModule, MatCheckboxModule, MatDialogModule } from "@angular/material";
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,7 +25,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-
+    arr_routing,
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -40,7 +40,9 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MatRadioModule,
     MatCardModule,
     MatTableModule,
+    MatInputModule,
     MatSortModule,
+
     MatPaginatorModule,
     MatCheckboxModule,
     MatDialogModule

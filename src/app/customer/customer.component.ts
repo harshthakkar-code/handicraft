@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { CustDataService } from './cust-data.service';
+import { CustTbl } from './cust-tbl';
 
 @Component({
   selector: 'app-customer',
@@ -8,7 +9,8 @@ import { CustDataService } from './cust-data.service';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  dataSource:MatTableDataSource<CustDataService>;
+  dataSource:MatTableDataSource<CustTbl>;
+  temparr:CustTbl[];
   displayedColumns:string[]=['cust_name','ph_no','action'];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -23,18 +25,28 @@ export class CustomerComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  // }
+   }
   // onEdit(row){
   //   this._dialog.open(StudentviewmoredialogComponent,{
   //     data:row
   //   });
-  }
-
-
-
 
   ngOnInit() {
+    this._data.getAllCustomers().subscribe(
+      (data:any)=>{
+        this.dataSource=data;
+        this.temparr=data;
+      }
+    );
   }
-
+  delCustomer(email){
+    if(confirm("Are you sure?")){
+      this._data.deleteCustomer(email).subscribe(
+        (data:any)=>{
+          this.temparr.splice(this.temparr.indexOf(email),1)
+          this.dataSource.data =this.temparr;
+        }
+      )};
+  }
 
 }
