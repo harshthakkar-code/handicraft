@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { CustDataService } from './cust-data.service';
 import { CustTbl } from './cust-tbl';
+import { ViewMoreComponent } from './view-more/view-more.component';
 
 @Component({
   selector: 'app-customer',
@@ -19,6 +20,16 @@ export class CustomerComponent implements OnInit {
       public _dialog:MatDialog) {
     this.dataSource=new MatTableDataSource();
   }
+  ngOnInit() {
+    this._data.getAllCustomers().subscribe(
+      (data:any)=>{
+        this.temparr=data;
+        this.dataSource.data=data;
+        console.log(this.temparr);
+        console.log(this.dataSource);
+      }
+    );
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -26,25 +37,22 @@ export class CustomerComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
    }
-  // onEdit(row){
-  //   this._dialog.open(StudentviewmoredialogComponent,{
-  //     data:row
-  //   });
+  onEdit(row){
+    this._dialog.open(ViewMoreComponent,{
+      data:row
+     })
+    };
 
-  ngOnInit() {
-    this._data.getAllCustomers().subscribe(
-      (data:any)=>{
-        this.dataSource=data;
-        this.temparr=data;
-      }
-    );
-  }
-  delCustomer(email){
+
+  delCustomer(row){
     if(confirm("Are you sure?")){
-      this._data.deleteCustomer(email).subscribe(
+      this._data.deleteCustomer(row.email).subscribe(
         (data:any)=>{
-          this.temparr.splice(this.temparr.indexOf(email),1)
-          this.dataSource.data =this.temparr;
+          console.log(this.temparr);
+          console.log(this.temparr.indexOf(row));
+          this.temparr.splice(this.temparr.indexOf(row),1);
+          this.dataSource.data=this.temparr;
+
         }
       )};
   }

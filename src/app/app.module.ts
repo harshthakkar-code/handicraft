@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from "@angular/common/http";
-import { MatIconModule , MatButtonModule , MatTableModule , MatSortModule, MatPaginatorModule, MatCheckboxModule, MatDialogModule } from "@angular/material";
+import { MatIconModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule, MatCheckboxModule, MatDialogModule } from "@angular/material";
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -16,11 +16,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { ViewMoreComponent } from './customer/view-more/view-more.component';
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
-    MainNavComponent
+    MainNavComponent,
+    ViewMoreComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,9 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MatPaginatorModule,
     MatCheckboxModule,
     MatDialogModule
+  ],
+  entryComponents:[
+    ViewMoreComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
