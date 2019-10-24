@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import { CustDataService } from './cust-data.service';
 import { CustTbl } from './cust-tbl';
 import { ViewMoreComponent } from './view-more/view-more.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -12,12 +13,13 @@ import { ViewMoreComponent } from './view-more/view-more.component';
 export class CustomerComponent implements OnInit {
   dataSource:MatTableDataSource<CustTbl>;
   temparr:CustTbl[];
-  displayedColumns:string[]=['cust_name','ph_no','action'];
+  displayedColumns:string[]=['cust_name','ph_no','email','action'];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private _data:CustDataService,
-      public _dialog:MatDialog) {
+      public _dialog:MatDialog,
+      private _router:Router) {
     this.dataSource=new MatTableDataSource();
   }
   ngOnInit() {
@@ -42,7 +44,9 @@ export class CustomerComponent implements OnInit {
       data:row
      })
     };
-
+    onclickEdit(email){
+      this._router.navigate(['/editCustomer',email]);
+    }
 
   delCustomer(row){
     if(confirm("Are you sure?")){

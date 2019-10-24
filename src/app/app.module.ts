@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { arr_routing } from "./routing";
+import { arr_routing } from './routing';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerComponent } from './customer/customer.component';
-import { HttpClientModule } from "@angular/common/http";
-import { MatIconModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule, MatCheckboxModule, MatDialogModule } from "@angular/material";
+import { MatIconModule } from '@angular/material';
+import { MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule, MatCheckboxModule, MatDialogModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,15 +14,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { ViewMoreComponent } from './customer/view-more/view-more.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
+import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     MainNavComponent,
-    ViewMoreComponent
+    ViewMoreComponent,
+    AddCustomerComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +52,10 @@ import { ViewMoreComponent } from './customer/view-more/view-more.component';
 
     MatPaginatorModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
-  entryComponents:[
+  entryComponents: [
     ViewMoreComponent
   ],
   providers: [],

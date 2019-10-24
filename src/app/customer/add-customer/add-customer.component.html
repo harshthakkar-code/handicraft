@@ -1,0 +1,33 @@
+<!-- <form>
+  <div >
+    <input type="text" #txtname placeholder="Customer Name" required>
+    <input type="number" #txtphno placeholder="Phome Number" ><br>
+     <p *ngIf="empty">Empty Value Not Allow<hr>
+    <input type="email" #txtemail placeholder="Email" required>
+    <input type="textarea" #txtaddress placeholder="address">
+    <input type="number" #txtpincode placeholder="pincode">
+    </div>
+  </form> -->
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Customer Name" #txtCustomerName>
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width">
+      <input type="number" matInput placeholder="Phone number" #txtphoneNumber>
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width">
+      <input type="email" matInput placeholder="Email" #txtemail>
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Address" #txtaddress></textarea>
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width">
+      <input  matInput placeholder="State" #txtstate>
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width">
+      <input type="number" matInput placeholder="pincode" #txtpincode>
+    </mat-form-field><br>
+    <button (click)="onSubmit(txtCustomerName.value,txtphoneNumber.value,txtemail.value,txtaddress.value,txtstate.value,txtpincode.value)" mat-stroked-button color="primary">Primary</button>
+  </form>
