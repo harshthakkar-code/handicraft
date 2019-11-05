@@ -31,7 +31,7 @@
             <td mat-cell *matCellDef="let row"></td>
          <mat-icon>delete</mat-icon>
         </button> |
-        <button (click)="onEdit()" mat-mini-fab color="primary" aria-label="Example icon-button with a heart icon">
+        <button (click)="onEdit(row)" mat-mini-fab color="primary" aria-label="Example icon-button with a heart icon">
           view
         </button>|
         <button mat-mini-fab color="primary" (click)="onclickEdit(row.email)"><mat-icon>edit</mat-icon></button>

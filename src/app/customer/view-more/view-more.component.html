@@ -1,4 +1,16 @@
-<p>view-more works!</p>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Cancel</button>
+<div class="editdiv">
+  <mat-form-field class="example-full-width">
+    <input type="email" readonly matInput placeholder="Email" [(ngModel)]="data.email">
+  </mat-form-field><br>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Customer Name"  name=txtCustomerName [(ngModel)]="data.cust_name">
+  </mat-form-field><br>
+  <mat-form-field class="example-full-width">
+    <input type="number" matInput placeholder="Phone number" [(ngModel)]="data.ph_no">
+  </mat-form-field><br>
+  <button  mat-stroked-button color="primary" (click)="onCancelClick()">OK</button>
+
+
+
+
 </div>
